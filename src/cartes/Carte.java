@@ -7,6 +7,17 @@ public abstract class Carte {
 		this.nombre = n;
 	}
 	
+	public int getNombre() {
+		return nombre;
+	}
+	
+	
+	@Override
+	public boolean equals(Object obj) {
+		return obj != null 
+				&& obj.getClass() == this.getClass();
+	}
+	
 	
 
 }

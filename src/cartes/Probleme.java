@@ -15,5 +15,10 @@ public abstract class Probleme extends Carte {
 	public enum Type {
 		FEU, ESSENCE, CREVAISON, ACCIDENT;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return super.equals(obj) && this.type == ((Probleme)obj).type;
+	}
 
 }

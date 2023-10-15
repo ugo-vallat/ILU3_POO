@@ -15,6 +15,10 @@ public class Sabot implements Iterable<Carte>{
 		this.sabot = new Carte[size];
 	}
 	
+	public int getNnCartes() {
+		return nbCartes;
+	}
+	
 	private void ajouterCarte(Carte c) {
 		if (nbCartes >= sabot.length)
 			throw new IndexOutOfBoundsException();
@@ -35,16 +39,22 @@ public class Sabot implements Iterable<Carte>{
 	public Carte piocher() {
 		Iterator<Carte> ite = iterator();
 		Carte carte = null;
-		if(ite.hasNext()) carte = ite.next();
-		ite.remove();
+		if(ite.hasNext()) {
+			carte = ite.next();
+			ite.remove();
+		}
+		
 		return carte;
 	}
+	
+	
 	
 	
 	@Override
 	public Iterator<Carte> iterator() {
 		return new SabotIterator();
 	}
+	
 	
 	
 //############################## ITERATOR ##############################
@@ -88,6 +98,8 @@ public class Sabot implements Iterable<Carte>{
 			if (this.nbOperationsRef != nbOperations)
 					throw new ConcurrentModificationException();
 		}
+		
+		
 	}
 	
 	
